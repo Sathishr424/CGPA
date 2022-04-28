@@ -108,6 +108,7 @@ class GPA:
         header.pack(padx=12, pady=2, fill='x')
 
         Label(header, text='Name: ' + name, font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
+        Label(header, text=' | ', font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
         Label(header, text='Roll No: ' + roll_no, font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
 
         body = Frame(mainFrame, bg='misty rose', highlightbackground='gray',highlightthickness='1')
