@@ -247,7 +247,7 @@ class GPA:
 
         
 if __name__ == '__main__':
-    GPA(Tk(), '-', '-')
-    # Login(Tk())
+    # GPA(Tk(), '-', '-')
+    Login(Tk())
 
 
