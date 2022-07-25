@@ -46,5 +46,91 @@
             {"type":"PRACTICALS", "code":"UHS1361", "title":"Interpersonal Skills Laboratory", "cat":"HS", "credits":1},
             {"type":"PRACTICALS", "code":"UIT1413", "title":"Mini Project", "cat":"EEC", "credits":2}
         ]
-    }
+    },
+    {"sem": "V", "totalCredits":25, "courses": [
+            {"type":"THEORY", "code":"UCS1403", "title":"Software Engineering", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1501", "title":"Computer Networks", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UEC1402", "title":"Microprocessors and microcontrollers", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1502", "title":"Mobile Application Development", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1503", "title":"Data Mining Techniques", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"", "title":"Professional Elective-I", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UCS1002", "title":"Agile Methodologies", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1005", "title":"Green Computing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1001", "title":"Cyber Forensics", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1704", "title":"Human Computer Interaction", "cat":"PE", "credits":3}
+            ]},
+            {"type":"THEORY", "code":"UHS1551", "title":"Professional Skills-IV", "cat":"EEC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1511", "title":"Computer Networks Laboratory", "cat":"PC", "credits":4},
+            {"type":"PRACTICALS", "code":"UIT1512", "title":"Mobile Application Development Laboratory", "cat":"PC", "credits":4},
+            {"type":"PRACTICALS", "code":"UHS1412", "title":"Microprocessors and Microcontrollers Laboratory", "cat":"PC", "credits":4}
+        ]
+    },
+    {"sem": "VI", "totalCredits":26, "courses": [
+            {"type":"THEORY", "code":"UIT1601", "title":"Object Oriented Modelling", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1602", "title":"Big Data Analytics", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UEC1603", "title":"Information Storage and Management", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1604", "title":"Computer Graphics and Multimedia", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"", "title":"Professional Elective-II", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UCS1018", "title":"Digital Image Processing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1002", "title":"C# and .Net Programming", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UMG1054", "title":"Professional Ethics in Engineering", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1006", "title":"Information Security", "cat":"PE", "credits":3}
+            ]},
+            {"type":"THEORY", "code":"", "title":"Open Elective-I", "cat":"OE", "credits":3,"extra":[
+                {"type":"THEORY", "code":"OEC1653", "title":"Satellite Communication", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OEC1654", "title":"Adhoc and Wireless Sensor Networks", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OEC1655", "title":"Bio-Medical Electronics", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OME1656", "title":"Robotics", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OME1652", "title":"Industrial Safety Engineering", "cat":"OE", "credits":3}
+            ]},
+            {"type":"PRACTICALS", "code":"UIT1611", "title":"Object Oriented Modelling Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1612", "title":"Data Analytics Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1613", "title":"Computer Graphics and Multimedia Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UHS1561", "title":"Professional Communication Laboratory", "cat":"HS", "credits":2}
+        ]
+   },
+   {"sem": "VII", "totalCredits":22, "courses": [
+            {"type":"THEORY", "code":"UIT1701", "title":"Cloud Computing ", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UEC1702", "title":"Network Security", "cat":"PC", "credits":4},
+            {"type":"THEORY", "code":"UIT1703", "title":"Internet of Things Architecture and protocals", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"", "title":"Professional Elective-III", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UEC1602", "title":"Embedded Systems and IoT", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1015", "title":"Quantum Computing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UGE1051", "title":"Human Rights", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1017", "title":"Service Oriented Architecture", "cat":"PE", "credits":3}
+            ]},
+            {"type":"THEORY", "code":"", "title":"Professional Elective-IV", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UMG1051", "title":"Digital Image Processing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1003", "title":"C# and .Net Programming", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UEC1501", "title":"Professional Ethics in Engineering", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1004", "title":"Information Security", "cat":"PE", "credits":3}
+            ]},
+            {"type":"PRACTICALS", "code":"UIT1711", "title":"Cloud Computing Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1712", "title":"Network Security Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1713", "title":"Internet Computing Laboratory", "cat":"PC", "credits":2}
+        ]
+   },
+   {"sem": "VIII", "totalCredits":15, "courses": [
+            {"type":"THEORY", "code":"", "title":"Professional Elective-V", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UCS1604", "title":"Machine Learning", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1019", "title":"Soft Computing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UMG1052", "title":"Total Quality Management", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UCS1010", "title":"Software Testing", "cat":"PE", "credits":3}
+            ]},
+            {"type":"THEORY", "code":"", "title":"Professional Elective-VI", "cat":"PE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"UEC1604", "title":"Speech and Image Processing", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1005", "title":"Social Network Analysis", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1006", "title":"Web Design and Management", "cat":"PE", "credits":3},
+                {"type":"THEORY", "code":"UIT1007", "title":"Software Project Management", "cat":"PE", "credits":3}
+            ]},
+            {"type":"THEORY", "code":"", "title":"Open Elective-II", "cat":"OE", "credits":3, "extra":[
+                {"type":"THEORY", "code":"OMG1851", "title":"Warehouse and Supply Chain Management", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OMG1852", "title":"Principles of Management", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OMG1853", "title":"Business Ethics and Corporate Social Responsibility", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OMG1854", "title":"Export Management and Documentation", "cat":"OE", "credits":3},
+                {"type":"THEORY", "code":"OEE1851", "title":"Energy Conservation and Management", "cat":"OE", "credits":3}
+            ]},
+            {"type":"PRACTICALS", "code":"UIT1811", "title":"Project Work", "cat":"EEC", "credits":6}
+        ]
+   }
 ]

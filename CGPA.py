@@ -3,19 +3,28 @@ from tkinter import ttk
 from tkinter.messagebox import *
 import json
 from functools import partial
+from scrollFrame import *
 
 # ----- CHANGE YOUR GRADE POINTS and ADD YOUR GRADES HERE ----- #
+#GRADES = {
+#    'A+': 9,
+#    'A': 8,
+#    'B+': 7,
+#    'B': 6,
+#    'C+': 5,
+#    'C': 4,
+#    'E': 0,
+#    'F': 0,
+#    'G': 0,
+#    'I': 0,
+#}
+
 GRADES = {
-    'A+': 9,
-    'A': 8,
-    'B+': 7,
-    'B': 6,
-    'C+': 5,
-    'C': 4,
-    'E': 0,
-    'F': 0,
-    'G': 0,
-    'I': 0,
+'EX': 10,
+    'A': 9,
+    'B': 8,
+    'C': 7,
+    'D': 6
 }
 # ------ #
 
@@ -48,13 +57,13 @@ class Login:
         roll_no = Entry(rl, font="constantia 10", width=40)
         roll_no.pack()
 
-        pl = LabelFrame(frame, text='Password', font="constantia 10")
-        pl.pack(anchor='w')
-        password = Entry(pl, font="constantia 10", width=40, show='*')
-        password.pack()
+        # pl = LabelFrame(frame, text='Password', font="constantia 10")
+        # pl.pack(anchor='w')
+        # password = Entry(pl, font="constantia 10", width=40, show='*')
+        # password.pack()
         
 
-        Button(frame, text='Login', font="constantia 10", bg='lightgreen', command=lambda: self.login(name.get(), roll_no.get(), password.get())).pack(anchor='w', padx=2, pady=2)
+        Button(frame, text='Login', font="constantia 10", bg='lightgreen', command=lambda: self.login(name.get(), roll_no.get())).pack(anchor='w', padx=2, pady=2)
         image = PhotoImage(file='user.png')
         image.zoom(8, 8)
         Label(sideFrame, image=image).pack()  
@@ -62,32 +71,40 @@ class Login:
 
         self.root.mainloop()
     
-    def login(self, n, r, p):
-        found = False
+    def login(self, n, r):
+        found = True
         det = []
         # print(n, r, p)
-        with open("users.json", 'r') as file:
-            users = json.loads(file.read())
-            for user in users:
-                # print(user)
-                if user['name'].lower() == n.lower() and user['roll_no'].lower() == r.lower() and user['password'] == p:
-                    found = True
-                    det = [user['name'], user['roll_no']]
-                    break
+        # with open("users.json", 'r') as file:
+        #     users = json.loads(file.read())
+        #     for user in users:
+        #         # print(user)
+        #         if user['name'].lower() == n.lower() and user['roll_no'].lower() == r.lower() and user['password'] == p:
+        #             found = True
+        #             det = [user['name'], user['roll_no']]
+        #    
+        if n == "": 
+            showinfo("ERROR", "Please enter your Name to login!")
+            return
+        elif r == "": 
+            showinfo("ERROR", "Please enter your Roll No. to login!")
+            return
+        # elif p == "": 
+        #     showinfo("ERROR", "Please enter the password to login!")
+        #     return
+
         if found:
             self.root.destroy()
-            GPA(Tk(), det[0], det[1])
-        else:
-            if n == "": showinfo("ERROR", "Please enter your Name to login!")
-            elif r == "": showinfo("ERROR", "Please enter your Roll No. to login!")
-            elif p == "": showinfo("ERROR", "Please enter the password to login!")
-            else: showinfo("ERROR", "No user found for this credentials!")
+            # GPA(Tk(), det[0], det[1])
+            GPA(Tk(), n.upper(), r.upper())
 
 class GPA:
     def __init__(self, root, name, roll_no):
         self.root = root
-        self.root.resizable(False, False)
         self.root.title("CGPA")
+        height = self.root.winfo_screenheight() - 100
+        width = self.root.winfo_screenwidth()
+        self.root.geometry("%dx%d" % (width, height))
         mainFrame = Frame(self.root, bg="lavender")
         mainFrame.pack()
         head = Frame(mainFrame)
@@ -110,43 +127,59 @@ class GPA:
         Label(header, text='Name: ' + name, font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
         Label(header, text=' | ', font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
         Label(header, text='Roll No: ' + roll_no, font="constantia 10", bg="lavender").pack(side='left', anchor='w', padx=2, pady=2)
+        
+        body = ScrollableFrame(mainFrame, width=width, height=height)
+        #body.attributes('-fullscreen', True)
+        body.pack(padx=4,pady=4, fill=BOTH, expand=YES)
 
-        body = Frame(mainFrame, bg='misty rose', highlightbackground='gray',highlightthickness='1')
-        body.pack(padx=4,pady=4)
-
-        bodyLeft = Frame(body, bg='misty rose')
-        bodyLeft.pack(side='left',padx=5, pady=5, anchor='w')
-
-        bodyRight = Frame(body, bg='misty rose')
-        bodyRight.pack(side='right',padx=5, pady=5, anchor='w')
+        # body = Frame(mainFrame, bg='misty rose', highlightbackground='gray',highlightthickness='1')
+        # body.pack(padx=4,pady=4)
+        # bodyLeft = Frame(body, bg='misty rose')
+        # bodyLeft.pack(side='left',padx=5, pady=5, anchor='w')
+        
+        # bodyRight = Frame(body, bg='misty rose')
+        # bodyRight.pack(side='right',padx=5, pady=5, anchor='w')
 
         with open('semesters.json', 'r') as file:
             self.data = json.loads(file.read())
+
             for i in range(len(self.data)):
+                if i%2 == 0:
+                    subBody = Frame(body.frame, bg='misty rose')
+                    subBody.pack(side='left', padx=5, pady=5, anchor='nw')
                 sem = self.data[i]
                 sem['GPA'] = 0.0
                 # print(sem)
-                if (i < 2):
-                    semFrame = Frame(bodyLeft, bg="misty rose", highlightbackground='gray',highlightthickness='1')
-                    semFrame.pack(anchor='sw', fill=BOTH)
-                else:
-                    semFrame = Frame(bodyRight, bg="misty rose", highlightbackground='gray',highlightthickness='1')
-                    semFrame.pack(anchor='nw', fill=BOTH)
+                # if (i < 2):
+                #     semFrame = Frame(bodyLeft, bg="misty rose", highlightbackground='gray',highlightthickness='1')
+                #     semFrame.pack(anchor='sw', fill=BOTH)
+                # else:
+                #     semFrame = Frame(bodyRight, bg="misty rose", highlightbackground='gray',highlightthickness='1')
+                #     semFrame.pack(anchor='nw', fill=BOTH)
+                semFrame = Frame(subBody, bg="misty rose", highlightbackground='gray',highlightthickness='1')
+                semFrame.pack(anchor='nw', fill=BOTH)
                 Label(semFrame, text='Semester ' + str(sem['sem']), font="constantia 10", bg="misty rose").grid(row=0, columnspan=4, sticky='W', pady=4)
-                Label(semFrame, text='Course Code', font="constantia 8", bg='lightgreen').grid(row=1, column=0, sticky='NESW')
-                Label(semFrame, text='Course Title', font="constantia 8", bg='lightgreen').grid(row=1, column=1, sticky='NESW')
-                Label(semFrame, text='Credit', font="constantia 8", bg='lightgreen').grid(row=1, column=2, sticky='NESW')
-                Label(semFrame, text='Grade Obtained', font="constantia 8", bg='lightgreen').grid(row=1, column=3, sticky='NESW')
+                Label(semFrame, text='Course Code', font="constantia 10", bg='lightgreen').grid(row=1, column=0, sticky='NESW')
+                Label(semFrame, text='Course Title', font="constantia 10", bg='lightgreen').grid(row=1, column=1, sticky='NESW')
+                Label(semFrame, text='Credit', font="constantia 10", bg='lightgreen').grid(row=1, column=2, sticky='NESW')
+                Label(semFrame, text='Grade Obtained', font="constantia 10", bg='lightgreen').grid(row=1, column=3, sticky='NESW')
                 # ------------
                 for c in range(len(sem['courses'])):
                     course = sem['courses'][c]
-                    Label(semFrame, text=course['code'], font="constantia 8", bg="misty rose").grid(row=c+2, column=0)
-                    Label(semFrame, text=course['title'], font="constantia 8", bg="misty rose").grid(row=c+2, column=1, sticky='w')
-                    Label(semFrame, text=course['credits'], font="constantia 8", bg="misty rose").grid(row=c+2, column=2)
+                    if (len(course['code']) <= 0):
+                        course['code'] = ttk.Combobox(semFrame, width=5, justify=CENTER, textvariable = course['code'], postcommand=partial(self.codeChange, sem['courses'][c]))
+                        course['code']['values'] = tuple([j['code'] for j in course['extra']])
+                        course['code'].bind('<<ComboboxSelected>>', partial(self.codeChange, course))
+                        course['code'].grid(row=c+2, column=0, sticky='nsew', padx=2)
+                    else:
+                        Label(semFrame, text=course['code'], font="constantia 10", bg="misty rose").grid(row=c+2, column=0)
+                    course['title'] = Label(semFrame, text=course['title'], font="constantia 10", bg="misty rose")
+                    course['title'].grid(row=c+2, column=1, sticky='w')
+                    Label(semFrame, text=course['credits'], font="constantia 10", bg="misty rose").grid(row=c+2, column=2)
                     sem['courses'][c]['grade'] = StringVar()
                     e = ttk.Combobox(semFrame, textvariable = sem['courses'][c]['grade'])
                     e['values'] = GRADE
-                    # e = Entry(semFrame, font="constantia 8", bg="misty rose")
+                    # e = Entry(semFrame, font="constantia 10", bg="misty rose")
                     e.grid(row=c+2, column=3)
                 Button(semFrame, text='Calculate GPA', command=partial(self.calculate, i), font="constantia 9", bg="lightgreen").grid(row=len(sem['courses'])+2)
                 sem['GPA'] = Label(semFrame, text="0.0", font="constantia 10")
@@ -154,6 +187,17 @@ class GPA:
                 
 
         self.root.mainloop()
+    
+    def getExtra(self, code, extra):
+        for i in range(len(extra)):
+            if (extra[i]['code'] == code):
+                return i
+        return -1
+    
+    def codeChange(self, sem, event):
+        # print("CHANGE", sem['code'].get())
+        sem['title']['text'] = sem['extra'][self.getExtra(sem['code'].get(), sem['extra'])]['title']
+        # print(sem['code'].get())
     
     def calculate(self, index):
         # print(index)
@@ -171,15 +215,31 @@ class GPA:
     def calculateCGPA(self):
         totalCredits = 0
         gradePoints = 0
+        cnt = 0
         for d in self.data:
-            if d['GPA']['text'] == '0.0':
-                showinfo('INFO', "Please first calculate all semester GPA!")
-                return
+            if d['GPA']['text'] != '0.0':
+                cnt += 1
+            else:
+                if cnt > 0: break
+        if cnt < 2: 
+            showinfo('INFO', "Please calculate atleast 2 following semesters GPA or even semesters GPA!")
+            return
+        lastGradePoints = 0
+        for i in range(len(self.data)):
+            d = self.data[i]
+            # if d['GPA']['text'] == '0.0':
+            #     showinfo('INFO', "Please first calculate all semester GPA!")
+            #     return
             totalCredits += int(d['totalCredits'])
+            lastGradePoints = gradePoints
             for c in d['courses']:
                 if (len(c['grade'].get()) <= 0):
-                    showerror('ERROR', "Please select Grade for all the courses in all semesters!")
-                    return
+                    if (i < 2):
+                        showerror('ERROR', "Please select Grades for atleast 2 semesters!")
+                        return
+                    gradePoints = lastGradePoints
+                    totalCredits -= int(d['totalCredits'])
+                    break
                 gradePoints += (c['credits'] * GRADES[c['grade'].get()])
         CGPA = gradePoints / totalCredits
         print(totalCredits, gradePoints, CGPA)
@@ -187,7 +247,7 @@ class GPA:
 
         
 if __name__ == '__main__':
-    # GPA(Tk(), 'Sathish', 'IT2043')
-    Login(Tk())
+    GPA(Tk(), '-', '-')
+    # Login(Tk())
 
 

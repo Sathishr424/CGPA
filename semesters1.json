@@ -1,0 +1,50 @@
+[
+    {"sem": "I", "totalCredits":23, "courses": [
+            {"type":"THEORY", "code":"UHS1151", "title":"Technical English - I", "cat":"HS", "credits":3},
+            {"type":"THEORY", "code":"UMA1151", "title":"Mathematics - I", "cat":"BS", "credits":4},
+            {"type":"THEORY", "code":"UPH1151", "title":"Engineering Physics - I", "cat":"BS", "credits":3},
+            {"type":"THEORY", "code":"UCY1151", "title":"Engineering Chemistry", "cat":"BS", "credits":3},
+            {"type":"THEORY", "code":"UGE1151", "title":"Python Programming and Problem Solving", "cat":"ES", "credits":3},
+            {"type":"THEORY CUM PRACTICAL", "code":"UBE1161", "title":"Basic Civil and Mechanical Engineering (Theory + Lab)", "cat":"ES", "credits":3},
+            {"type":"PRACTICALS", "code":"UBS1161", "title":"Physics and Chemistry Laboratory", "cat":"BS", "credits":2},
+            {"type":"PRACTICALS", "code":"UGE1161", "title":"Python Programming and Problem Solving Laboratory", "cat":"ES", "credits":2}
+        ]
+    },
+    {"sem": "II", "totalCredits":25, "courses": [
+            {"type":"THEORY", "code":"UHS1251", "title":"Technical English - II", "cat":"HS", "credits":3},
+            {"type":"THEORY", "code":"UMA1251", "title":"Mathematics - II", "cat":"BS", "credits":4},
+            {"type":"THEORY", "code":"UPH1251", "title":"Engineering Physics - II", "cat":"BS", "credits":3},
+            {"type":"THEORY", "code":"UGE1251", "title":"Environmental Science and Engineering", "cat":"HS", "credits":3},
+            {"type":"THEORY", "code":"UGE1252", "title":"C Programming", "cat":"ES", "credits":3},
+            {"type":"THEORY", "code":"UGE1253", "title":"Engineering Graphics", "cat":"ES", "credits":3},
+            {"type":"THEORY", "code":"UHS1252", "title":"Professional skills - I", "cat":"EEC", "credits":1},
+            {"type":"THEORY CUM PRACTICAL", "code":"UBE1261", "title":"Basic Electrical and Electronics Engineering (Theory + Lab)", "cat":"ES", "credits":3},
+            {"type":"PRACTICALS", "code":"UGE1261", "title":"C Programming Laboratory", "cat":"ES", "credits":2}
+        ]
+    },
+    {"sem": "III", "totalCredits":23, "courses": [
+            {"type":"THEORY", "code":"UMA1351", "title":"Discrete Mathematics and Graph Theory", "cat":"BS", "credits":4},
+            {"type":"THEORY", "code":"UEC1352", "title":"Digital Principles and Systems Design", "cat":"ES", "credits":3},
+            {"type":"THEORY", "code":"UIT1301", "title":"Data Structures and Algorithm Analysis", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1302", "title":"Computer Organization and Architecture", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1303", "title":"Object Oriented Programming", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UHS1351", "title":"Professional Skills-II", "cat":"EEC", "credits":1},
+            {"type":"PRACTICALS", "code":"UIT1311", "title":"Data Structures and Algorithms Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1312", "title":"Object Oriented Programming Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UEC1362", "title":"Digital Principles and Systems Design Laboratory", "cat":"ES", "credits":2}
+        ]
+    },
+    {"sem": "IV", "totalCredits":24, "courses": [
+            {"type":"THEORY", "code":"UMA1456", "title":"Probability and Statistics", "cat":"BS", "credits":4},
+            {"type":"THEORY", "code":"UIT1401", "title":"Database Management Systems", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UCS1402", "title":"Operating Systems", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1402", "title":"Web based Internet Programming", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UIT1403", "title":"Introduction to Artificial Intelligence", "cat":"PC", "credits":3},
+            {"type":"THEORY", "code":"UHS1451", "title":"Professional Skills-III", "cat":"EEC", "credits":1},
+            {"type":"PRACTICALS", "code":"UIT1411", "title":"Database Management Systems Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UIT1412", "title":"Internet Programming Laboratory", "cat":"PC", "credits":2},
+            {"type":"PRACTICALS", "code":"UHS1361", "title":"Interpersonal Skills Laboratory", "cat":"HS", "credits":1},
+            {"type":"PRACTICALS", "code":"UIT1413", "title":"Mini Project", "cat":"EEC", "credits":2}
+        ]
+    }
+]
